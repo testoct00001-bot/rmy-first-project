@@ -1,5 +1,17 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## JavaScript URL Extractor CLI Tool
+
+This project includes a standalone Node.js CLI tool (`extract-js-urls.mjs`) that fetches HTML content from eero.com and extracts all JavaScript file URLs. See [CLI-README.md](./CLI-README.md) for details.
+
+### Quick Start
+
+```bash
+npm run extract-js
+# or
+node extract-js-urls.mjs
+```
+
 ## Getting Started
 
 First, run the development server:
