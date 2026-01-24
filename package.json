@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "extract-js": "node extract-js-urls.mjs"
   },
   "dependencies": {
     "react": "19.2.0",
