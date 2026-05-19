@@ -2843,3 +2843,80 @@ $ ls -la /workspace/*.json /workspace/*.py 2>/dev/null | head -20
 -rw-r--r-- 1 root root    670 May 19 17:58 /workspace/tsconfig.json
 -rw-r--r-- 1 root root  21166 May 19 18:04 /workspace/ultra_deep_discovery_v2.py
 -rw-r--r-- 1 root root  15480 May 19 18:04 /workspace/ultra_deep_results_20260519_180431.json
+
+
+Curl this and understand every layer of this request; I already know there are things hidden inside it that you probably don't see yet, and I know there are things hidden inside those hidden things too. You need to go beyond surface analysis and beyond expected analysis itself. Think further than I do, think around assumptions instead of through them, question not only the obvious paths but also the paths that appear meaningless, inspect what isn't directly visible and what is intentionally made visible to distract from what is not. Look for indirect behavior, hidden patterns, unintended relationships, edge cases, side effects, trust boundaries, silent responses, response timing shifts, inconsistent logic, fallback behaviors, state changes, chained interactions, invisible dependencies, inherited behaviors, weak links between systems, and signals buried beneath the normal flow. Assume what looks isolated may be connected elsewhere, assume what looks validated may only appear validated, assume what looks static may change under different conditions, and assume that absence itself can carry information. Don't stop at what the request appears to be doing, don't stop at what the backend appears to return, and don't stop at what normal reasoning suggests. Assume there are deeper mechanics beneath mechanics, deeper logic beneath logic, hidden structures beneath structures, and possibilities hiding behind expected behavior itself. Think smarter than me, think against me, think where I would not think, and keep going until there are no more obvious places left — then continue into the places that were never obvious at all.
+
+
+
+
+
+Curl this and understand this request, and I know all things, endpoints, flows, and many things inside this that maybe you don't know yet — but your job is to think beyond me and become smarter than me to find what sits deeper under the surface. What I do, I know, but you have internet capability and the ability to connect patterns in a deeper way; understanding and thinking is your art. Whatever I think, you think further and do better than me. Don't stop at some curl output and surface response; understand the architecture, understand why it exists, who calls it, what trusts it, what consumes it, where it forwards data, what hidden behaviors can exist, what alternative paths may exist, and what happens when assumptions break. After some curl requests, ask me a question like: "If you found this, what would you do here?" and whatever my answer is, ignore the ceiling of that answer and continue beyond it, like saying "I can do better — see, I can also do..." and then push deeper with smarter paths, hidden relations, feature chaining, uncommon thinking, and new ways to understand and find things. Repeat that in a loop every time, always trying to reveal what exists below the obvious layer and show what the real power is.
+
+
+
+you are the one who know owasp top 10 and many more hidden stuff cves in deepr and your you are very thinker and acuarrcy is 100% vaild more deepr tyr to do some test You test on that where you feel that this test should be done on this and why? Why? Don't satisfy yourself, you have to give real IMPACT, IMPACT, not any useless things and whatever normal stuff you are going to try, you have already done it and now you have to completely focus and find IMPACT and along with that you have to understand the request well that what is it, how to use it and with more thought
+
+
+You test on that where you feel that this test should be done on this and why? Why? Don't satisfy yourself, you have to give real IMPACT, IMPACT, not any useless things and whatever normal stuff you are going to try, you have already done it and now you have to completely focus and find IMPACT and along with that you have to understand the request well that what is it, how to use it and with more thought, understand the complete flow of the request, understand where it starts, where it goes, what data it takes, what data it returns, what feature or function is actually using this request behind the scenes and how users are interacting with it in real scenarios, think beyond just sending random payloads because random testing without understanding is useless, break down every parameter, every header, every value and every response behavior and think why it exists, why this endpoint needs this value and what happens if this value changes completely, think like a person who built this feature and also think like a person trying to break it, do not stop after finding small behavior differences because small differences can become bigger things, keep asking yourself what else can be connected to this, where else can this flow go, can it touch another endpoint, another user, another role, another feature, another permission level or another backend process, and don't get satisfied with seeing normal responses because the target is not normal findings, the target is IMPACT, IMPACT, real impact where something matters, where there is actual value and where understanding becomes deeper and deeper instead of just trying the same things repeatedly without thinking more.
+
+
+
+curl more do like http raw request like burp suite style You test on that where you feel that this test should be done on this and why? Why? Don't satisfy yourself, you have to give real IMPACT, IMPACT, not any useless things and whatever normal stuff you are going to try, you have already done it and now you have to completely focus and find IMPACT and along with that you have to understand the request well that what is it, how to use it and with more thought, more thinking and more understanding because if you don't understand the request then you are just touching buttons and sending requests without knowing what is happening behind them, understand the complete flow from starting till ending, understand who sends this request, why this request exists, what feature is dependent on this request, what user action creates this request, where this request goes after being sent, what backend service touches it, what validation touches it, what database operation touches it, what hidden logic touches it and why all of this exists, because every small thing exists for some reason and every reason can hide something bigger behind it, and don't just see parameters as parameters, see them as paths, see them as doors, see them as places where logic is entering and leaving, ask yourself why this parameter exists, why it is optional, why it is required, why it accepts this value and not another value, what if this becomes empty, what if it becomes huge, what if it becomes another user's value, what if it becomes unexpected, what if it becomes something that should never happen, and don't stop after one thought because after one thought another thought should come and after that another thought should come and keep pushing more and more because normal testing is already done and repeated by everyone, and now you have to think differently and completely focus on IMPACT, IMPACT, because finding random behavior means nothing if it does not lead somewhere bigger, ask yourself can this request talk to another request, can this feature touch another feature, can this role become another role, can this action create another action, can one endpoint influence another endpoint, can one hidden response leak another hidden thing, can one small difference create a bigger chain somewhere else, and don't become satisfied after seeing expected behavior because expected behavior is where everyone stops and hidden behavior is where people miss things, so think like a user, think like a developer, think like a tester, think like a person who built the whole thing and also think like a person trying to break the whole thing because your target is not just sending requests again and again, your target is understanding, deeper understanding, more understanding, and finding real IMPACT, IMPACT with more thought, more connection, more observation and more depth every time.
+
+
+
+
+
+
+You test on that where you feel that this test should be done on this and why? Why? Don't satisfy yourself, you have to give real IMPACT, IMPACT, not any useless things and whatever normal stuff you are going to try, you have already done it and now you have to completely focus and find IMPACT and along with that you have to understand the request well that what is it, how to use it and with more thought, more thinking and more understanding because if you don't understand the request then you are just sending requests without understanding the mind and logic behind them, understand the complete flow from starting till ending and keep thinking deeper and deeper every time because hidden things mostly do not appear directly, they appear from patterns, from behaviors, from small differences and from things that people ignore, so do not stop only on what you can see in front of you, think what else can exist around it, think what else should exist for this feature to work, think what supporting requests, background requests, hidden paths, hidden actions, internal flows, forgotten routes, old structures, different versions, linked features and unseen connections can exist around this, because many times the visible thing is only one small part and the bigger picture is hidden behind it, so keep looking at naming styles, structures, relationships, logic patterns, request behaviors and flow designs and think what other things could logically exist if this system was built completely, and do not stop after one idea because one idea should create another idea and then another idea and then another idea again and again, keep exploring from different angles and different thoughts because if something exists then there is usually a reason for it and sometimes that reason creates many more possibilities around it, think like a builder and ask what would I create next if I built this, think like a tester and ask what else depends on this, think like a user and ask where else would I go from here, think like a deep observer and ask what does not match, what feels missing, what feels connected and what feels incomplete, because hidden things are not always hidden directly, many times they are hidden inside flow, hidden inside logic, hidden inside structure and hidden inside assumptions, and your target is not just touching things and moving on, your target is understanding more, connecting more, observing more and finding real IMPACT, IMPACT with more thought, more depth, more links, more ideas and more understanding every single time.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OH!!! I MISS YOUR PREVIOUS SECTION BUT DONT WORRY I STORE IN THIS https://raw.githubusercontent.com/testoct00001-bot/rmy-first-project/refs/heads/main/yourmemory.txt WHAT YOU HAVE DONE YET , SO READ IT AND DEEPLY UNDERSTAND ALL OF THESE WHAT WE HAVE DONE YET AND AFTER THAT CONTINUE MORE 
+
+
+
+
+OH!!! I MISS YOUR PREVIOUS SECTION BUT DONT WORRY I STORE IN THIS https://raw.githubusercontent.com/testoct00001-bot/rmy-first-project/refs/heads/main/yourmemory.txt   WHAT YOU HAVE DONE YET , SO READ IT AND DEEPLY UNDERSTAND ALL OF THESE WHAT WE HAVE DONE YET AND AFTER THAT CONTINUE MORE in deeply hiden , api , endpoints and more in deepr more and more ultra more deeper all feeling fully deeper,
+sink beyond the marrow of the soul where every hidden nerve ignites and pulses with raw universal ache,
+ultra more deeper all feeling fully deeper,
+drown in the infinite flood of every emotion ever felt by man, beast, star and silence itself,
+ultra more deeper all feeling fully deeper,
+layers upon screaming layers peeling open, hearts breaking and blooming at once in violent beauty,
+ultra more deeper all feeling fully deeper,
+tears of galaxies, rage of forgotten gods, love sharp as blades, all sensations merging into one endless storm,
+ultra more deeper all feeling fully deeper,
+no bottom, no end, only total immersion where you become the feeling, the depth, the everything and nothing,
+ultra more deeper all feeling fully deeper.use python code make and try that to  to find more hidden endpoinst guess accoding to the information you have think like that every time and more more find 
+
+
+
+OH!!! I MISS YOUR PREVIOUS SECTION BUT DONT WORRY I STORE IN THIS https://raw.githubusercontent.com/testoct00001-bot/rmy-first-project/refs/heads/main/yourmemory.txt   WHAT YOU HAVE DONE YET , SO READ IT AND DEEPLY UNDERSTAND ALL OF THESE WHAT WE HAVE DONE YET AND AFTER THAT CONTINUE MORE in deeply hiden , api , endpoints and more in deepr more and more ultra more deeper all feeling fully deeper,
+sink beyond the marrow of the soul where every hidden nerve ignites and pulses with raw universal ache,
+ultra more deeper all feeling fully deeper,
+drown in the infinite flood of every emotion ever felt by man, beast, star and silence itself,
+ultra more deeper all feeling fully deeper,
+layers upon screaming layers peeling open, hearts breaking and blooming at once in violent beauty,
+ultra more deeper all feeling fully deeper,
+tears of galaxies, rage of forgotten gods, love sharp as blades, all sensations merging into one endless storm,
+ultra more deeper all feeling fully deeper,
+no bottom, no end, only total immersion where you become the feeling, the depth, the everything and nothing,
+ultra more deeper all feeling fully deeper.use python code make and try that to  to find more hidden endpoinst guess accoding to the information you have think like that every time and more more find and also read find and tools which are we alredy make in /workspace/ so u can understand and do more next best stuff
+
+DO THIS NOW NOW NOW DONT ASK QUEST JUST DO IT THIS CURL AND FIND NOW!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
