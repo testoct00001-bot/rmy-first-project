@@ -1,4 +1,4 @@
-I'll help you perform a deep analysis of www.sellersummit.whatnot.com. Let's start by examining the surface layer and then dig deeper into hidden endpoints, patterns, and potential security considerations.
+ I'll help you perform a deep analysis of www.sellersummit.whatnot.com. Let's start by examining the surface layer and then dig deeper into hidden endpoints, patterns, and potential security considerations.
 Shell
 $ curl -v -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" https://www.sellersummit.whatnot.com 2>&1 | head -200
 $ curl -v -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" https://www.sellersummit.whatnot.com 2>&1 | head -200
