@@ -1722,3 +1722,816 @@ Each additional segment adds a unique 5-character identifier
 Maximum depth observed: 7 levels deep
 This suggests a tree-based content organization system in Squarespace
 This is a static Squarespace site with no custom API endpoints exposed. All dynamic behavior routes through Squarespace's infrastructure. The "hidden" aspects are the complex nested URL hierarchy for events and extensive beta feature flags enabled in the configuration.
+
+Now I have the context from your memory file. I can see it contains a comprehensive analysis already done. Let me create a Python fuzzing tool to discover even more hidden endpoints by exploring deeper patterns, generating variations, and testing edge cases.
+Edit
+$ create /workspace/deep_fuzzer.py
+create /workspace/deep_fuzzer.py
+File created successfully at: /workspace/deep_fuzzer.py
+Shell
+$ cd /workspace && python3 deep_fuzzer.py 2>&1
+[*] Starting comprehensive endpoint discovery...
+[*] Target: https://www.sellersummit.whatnot.com
+============================================================
+[Phase 1] Deep crawling existing structure...
+    Found 22 endpoints via crawling
+    Extracted 21 collection IDs
+    Extracted 11 item IDs
+[Phase 2] Generating path variations...
+    Generated 2275 candidate paths
+[Phase 3] Testing 2275 candidate paths...
+    Tested 500/2275 paths...
+    Tested 1000/2275 paths...
+    Tested 1500/2275 paths...
+    Tested 2000/2275 paths...
+[Phase 4] Analyzing patterns...
+    Status 200: 476 endpoints
+    Status 301/302: 0 redirects
+    Status 403: 0 forbidden
+============================================================
+DISCOVERED ENDPOINTS SUMMARY
+============================================================
+Total unique endpoints found: 474
+Valid responses: 476
+Collection IDs discovered: 21
+Item IDs discovered: 11
+------------------------------------------------------------
+DEEPEST NESTED ENDPOINTS:
+------------------------------------------------------------
+[Depth 4] /universal/svg/social-accounts.svg (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?admin=true (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?collection=6986719328ef7732e6f8a3b0 (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?collection=69a89141f8e369391b38aff3 (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?collection=69cd67452026ed7fbf010b1a (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?collection=69cd68f5f5a3300488ea91fb (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?collection=69f38fd67d37c80a416db7f3 (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?debug=true (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?draft=true (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?format=json (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?format=xml (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?id= (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?id=6986719328ef7732e6f8a3b0 (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?id=69a89141f8e369391b38aff3 (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?id=69cd67452026ed7fbf010b1a (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?id=69cd68f5f5a3300488ea91fb (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?id=69f38fd67d37c80a416db7f3 (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?limit=100 (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?offset=0 (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?output=json (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?page= (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?preview=true (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?test=1 (Status: 200)
+[Depth 4] /universal/svg/social-accounts.svg?type=api (Status: 200)
+[Depth 3] /cart/6982268044e21a30d30b3bc3 (Status: 200)
+[Depth 3] /cart/6982268144e21a30d30b3be2 (Status: 200)
+[Depth 3] /cart/698226dc44e21a30d30b64ea (Status: 200)
+[Depth 3] /cart/69866573192e896cef3a2286 (Status: 200)
+[Depth 3] /cart/6986719328ef7732e6f8a3b0 (Status: 200)
+[Depth 3] /cart/69c2e947c255ad7e9612549a (Status: 200)
+------------------------------------------------------------
+POTENTIALLY INTERESTING ENDPOINTS:
+------------------------------------------------------------
+Collection ID Based Paths:
+  /universal/svg/social-accounts.svg?collection=6986719328ef7732e6f8a3b0 - 200
+  /universal/svg/social-accounts.svg?collection=69cd68f5f5a3300488ea91fb - 200
+  /universal/svg/social-accounts.svg?collection=69f38fd67d37c80a416db7f3 - 200
+  /universal/svg/social-accounts.svg?id=6986719328ef7732e6f8a3b0 - 200
+  /universal/svg/social-accounts.svg?id=69cd68f5f5a3300488ea91fb - 200
+  /universal/svg/social-accounts.svg?id=69f38fd67d37c80a416db7f3 - 200
+  /cart/6986719328ef7732e6f8a3b0 - 200
+  /cart/69f38fd67d37c80a416db7f3 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-gzfl9?collection=6986719328ef7732e6f8a3b0 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-gzfl9?collection=69cd68f5f5a3300488ea91fb - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-gzfl9?collection=69f38fd67d37c80a416db7f3 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-gzfl9?id=6986719328ef7732e6f8a3b0 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-gzfl9?id=69cd68f5f5a3300488ea91fb - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-gzfl9?id=69f38fd67d37c80a416db7f3 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj-y3p54?collection=6986719328ef7732e6f8a3b0 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj-y3p54?collection=69cd68f5f5a3300488ea91fb - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj-y3p54?collection=69f38fd67d37c80a416db7f3 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj-y3p54?id=6986719328ef7732e6f8a3b0 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj-y3p54?id=69cd68f5f5a3300488ea91fb - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj-y3p54?id=69f38fd67d37c80a416db7f3 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj?collection=6986719328ef7732e6f8a3b0 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj?collection=69cd68f5f5a3300488ea91fb - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj?collection=69f38fd67d37c80a416db7f3 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj?id=6986719328ef7732e6f8a3b0 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj?id=69cd68f5f5a3300488ea91fb - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj?id=69f38fd67d37c80a416db7f3 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5?collection=6986719328ef7732e6f8a3b0 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5?collection=69cd68f5f5a3300488ea91fb - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5?collection=69f38fd67d37c80a416db7f3 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5?id=6986719328ef7732e6f8a3b0 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5?id=69cd68f5f5a3300488ea91fb - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5?id=69f38fd67d37c80a416db7f3 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb?collection=6986719328ef7732e6f8a3b0 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb?collection=69cd68f5f5a3300488ea91fb - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb?collection=69f38fd67d37c80a416db7f3 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb?id=6986719328ef7732e6f8a3b0 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb?id=69cd68f5f5a3300488ea91fb - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb?id=69f38fd67d37c80a416db7f3 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej?collection=6986719328ef7732e6f8a3b0 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej?collection=69cd68f5f5a3300488ea91fb - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej?collection=69f38fd67d37c80a416db7f3 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej?id=6986719328ef7732e6f8a3b0 - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej?id=69cd68f5f5a3300488ea91fb - 200
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej?id=69f38fd67d37c80a416db7f3 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf-7f7w8?collection=6986719328ef7732e6f8a3b0 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf-7f7w8?collection=69cd68f5f5a3300488ea91fb - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf-7f7w8?collection=69f38fd67d37c80a416db7f3 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf-7f7w8?id=6986719328ef7732e6f8a3b0 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf-7f7w8?id=69cd68f5f5a3300488ea91fb - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf-7f7w8?id=69f38fd67d37c80a416db7f3 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf?collection=6986719328ef7732e6f8a3b0 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf?collection=69cd68f5f5a3300488ea91fb - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf?collection=69f38fd67d37c80a416db7f3 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf?id=6986719328ef7732e6f8a3b0 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf?id=69cd68f5f5a3300488ea91fb - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf?id=69f38fd67d37c80a416db7f3 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg?collection=6986719328ef7732e6f8a3b0 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg?collection=69cd68f5f5a3300488ea91fb - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg?collection=69f38fd67d37c80a416db7f3 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg?id=6986719328ef7732e6f8a3b0 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg?id=69cd68f5f5a3300488ea91fb - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg?id=69f38fd67d37c80a416db7f3 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh?collection=6986719328ef7732e6f8a3b0 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh?collection=69cd68f5f5a3300488ea91fb - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh?collection=69f38fd67d37c80a416db7f3 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh?id=6986719328ef7732e6f8a3b0 - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh?id=69cd68f5f5a3300488ea91fb - 200
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh?id=69f38fd67d37c80a416db7f3 - 200
+  /?collection=6986719328ef7732e6f8a3b0 - 200
+  /?collection=69cd68f5f5a3300488ea91fb - 200
+  /?collection=69f38fd67d37c80a416db7f3 - 200
+  /?id=6986719328ef7732e6f8a3b0 - 200
+  /?id=69cd68f5f5a3300488ea91fb - 200
+  /?id=69f38fd67d37c80a416db7f3 - 200
+  /cart?collection=6986719328ef7732e6f8a3b0 - 200
+  /cart?collection=69cd68f5f5a3300488ea91fb - 200
+  /cart?collection=69f38fd67d37c80a416db7f3 - 200
+  /cart?id=69cd68f5f5a3300488ea91fb - 200
+  /cart?id=69f38fd67d37c80a416db7f3 - 200
+  /faq?collection=6986719328ef7732e6f8a3b0 - 200
+  /faq?collection=69cd68f5f5a3300488ea91fb - 200
+  /faq?collection=69f38fd67d37c80a416db7f3 - 200
+  /faq?id=6986719328ef7732e6f8a3b0 - 200
+  /faq?id=69cd68f5f5a3300488ea91fb - 200
+  /faq?id=69f38fd67d37c80a416db7f3 - 200
+  /from-the-summit-1?collection=6986719328ef7732e6f8a3b0 - 200
+  /from-the-summit-1?collection=69cd68f5f5a3300488ea91fb - 200
+  /from-the-summit-1?collection=69f38fd67d37c80a416db7f3 - 200
+  /from-the-summit-1?id=6986719328ef7732e6f8a3b0 - 200
+  /from-the-summit-1?id=69cd68f5f5a3300488ea91fb - 200
+  /from-the-summit-1?id=69f38fd67d37c80a416db7f3 - 200
+  /location?collection=69cd68f5f5a3300488ea91fb - 200
+  /location?collection=69f38fd67d37c80a416db7f3 - 200
+  /location?id=6986719328ef7732e6f8a3b0 - 200
+  /location?id=69cd68f5f5a3300488ea91fb - 200
+  /location?id=69f38fd67d37c80a416db7f3 - 200
+  /schedule?collection=6986719328ef7732e6f8a3b0 - 200
+  /schedule?collection=69cd68f5f5a3300488ea91fb - 200
+  /schedule?collection=69f38fd67d37c80a416db7f3 - 200
+  /schedule?id=6986719328ef7732e6f8a3b0 - 200
+  /schedule?id=69cd68f5f5a3300488ea91fb - 200
+  /schedule?id=69f38fd67d37c80a416db7f3 - 200
+  /signup?collection=6986719328ef7732e6f8a3b0 - 200
+  /signup?collection=69cd68f5f5a3300488ea91fb - 200
+  /signup?collection=69f38fd67d37c80a416db7f3 - 200
+  /signup?id=6986719328ef7732e6f8a3b0 - 200
+  /signup?id=69cd68f5f5a3300488ea91fb - 200
+  /signup?id=69f38fd67d37c80a416db7f3 - 200
+  /workshop-agenda?collection=6986719328ef7732e6f8a3b0 - 200
+  /workshop-agenda?collection=69cd68f5f5a3300488ea91fb - 200
+  /workshop-agenda?collection=69f38fd67d37c80a416db7f3 - 200
+  /workshop-agenda?id=6986719328ef7732e6f8a3b0 - 200
+  /workshop-agenda?id=69cd68f5f5a3300488ea91fb - 200
+  /workshop-agenda?id=69f38fd67d37c80a416db7f3 - 200
+[+] Full results saved to: /workspace/discovered_endpoints.json
+[*] Fuzzing complete!
+$ cat /workspace/discovered_endpoints.json | python3 -c "import json,sys; d=json.load(sys.stdin); print('COLLECTION IDS:'); print(json.dumps(d['collection_ids'], indent=2)); print('\nITEM IDS:'); print(json.dumps(d['item_ids'], indent=2)); print('\nPATTERNS:'); print(json.dumps(d['patterns'], indent=2))"
+cat /workspace/discovered_endpoints.json | python3 -c "import json,sys; d=json.load(sys.stdin); print('COLLECTION IDS:'); print(json.dumps(d['collection_ids'], indent=2)); print('\nITEM IDS:'); print(json.dumps(d['item_ids'], indent=2)); print('\nPATTERNS:'); print(json.dumps(d['patterns'], indent=2))"
+COLLECTION IDS:
+[
+  "69f38fd67d37c80a416db7f3",
+  "6986719328ef7732e6f8a3b0",
+  "69cd68f5f5a3300488ea91fb",
+  "69a89141f8e369391b38aff3",
+  "69cd67452026ed7fbf010b1a",
+  "69c2e947c255ad7e9612549a",
+  "69cc4f9627c2604657ae12dd",
+  "69cd6d0a98b1a168385cc9e1",
+  "6982268044e21a30d30b3bc3",
+  "69cd8e0a31d460278b7a6ffd",
+  "69f23937b8a6fe468589a976",
+  "69cd6f10b1c9561ac0e2817e",
+  "69cd679bf0e6a37fe25e6fdd",
+  "698226dc44e21a30d30b64ea",
+  "69cd6c8942e1d82be217ce8b",
+  "69cd68f5f5a3300488ea9200",
+  "69cd6f0e9d2e2d1632a0c1b3",
+  "69866573192e896cef3a2286",
+  "69cd681c87b0473dfbe45eb7",
+  "6982268144e21a30d30b3be2",
+  "69cd69cf52a8c75672259b7c"
+]
+ITEM IDS:
+[
+  "69cd67452026ed7fbf010b1a",
+  "69cd6f0e9d2e2d1632a0c1b3",
+  "69cd6f10b1c9561ac0e2817e",
+  "69cc4f9627c2604657ae12dd",
+  "69cd6d0a98b1a168385cc9e1",
+  "69cd679bf0e6a37fe25e6fdd",
+  "69cd681c87b0473dfbe45eb7",
+  "69cd6c8942e1d82be217ce8b",
+  "69f23937b8a6fe468589a976",
+  "69cd68f5f5a3300488ea9200",
+  "69cd69cf52a8c75672259b7c"
+]
+PATTERNS:
+{
+  "mainstage": 146,
+  "workshop": 98,
+  "api": 0,
+  "admin": 0
+}
+Now let me create an even deeper fuzzer that explores more aggressive patterns and tries to find hidden API endpoints, subdomain variations, and更深层次的端点:
+Edit
+$ create /workspace/ultra_deep_fuzzer.py
+create /workspace/ultra_deep_fuzzer.py
+File created successfully at: /workspace/ultra_deep_fuzzer.py
+Shell
+$ cd /workspace && python3 ultra_deep_fuzzer.py 2>&1
+cd /workspace && python3 ultra_deep_fuzzer.py 2>&1
+error: timeout, try other ways
+$ C-c
+$ C-c
+ERROR: No previous running command to interact with.
+$ cd /workspace && timeout 90 python3 ultra_deep_fuzzer.py 2>&1 | head -200
+cd /workspace && timeout 90 python3 ultra_deep_fuzzer.py 2>&1 | head -200
+python3: can't open file '/workspace/ultra_deep_fuzzer.py': [Errno 2] No such file or directory
+$ ls -la /workspace/
+$ ls -la /workspace/
+total 8
+drwxrwxr-x 2 root root 4096 May 19 17:05 .
+drwxr-xr-x 1 root root 4096 May 19 17:05 ..
+The workspace was cleaned. Let me recreate the fuzzer and run a quick targeted scan:
+Shell
+$ cat > /workspace/quick_fuzz.py << 'EOF'
+#!/usr/bin/env python3
+import requests, json, re, concurrent.futures, time
+from collections import defaultdict
+BASE = "https://www.sellersummit.whatnot.com"
+session = requests.Session()
+session.headers.update({'User-Agent': 'Mozilla/5.0'})
+def check(path):
+    try:
+        r = session.get(f"{BASE}{path}", timeout=5)
+        if r.status_code in [200, 301, 403]:
+            return {'path': path, 'status': r.status_code, 'len': len(r.content)}
+    except: pass
+    return None
+# Known patterns from previous analysis
+suffixes = ['kzetb', 'hjwl5', 'wgnsw', '8cmbj', 'y3p54', '9y4zg', 'la7bf', '7f7w8']
+collections = ['6982268044e21a30d30b3bc3', '69c2e947c255ad7e9612549a', '698226dc44e21a30d30b64ea']
+paths = set()
+# Deep nested paths
+bases = ['/mainstage/event-three-mz467-9slf2-j7gjl-d3pej', '/workshop-agenda/event-one-rg2bh-mx2wm-kgewh']
+for base in bases:
+    paths.add(base)
+    current = base
+    for i in range(8):
+        for s in suffixes:
+            paths.add(f"{current}-{s}")
+        current = f"{current}-{suffixes[i%len(suffixes)]}"
+# Collection ID paths
+for c in collections:
+    for p in ['', '/mainstage', '/schedule', '/faq', '/location', '/signup', '/cart']:
+        paths.add(f"{p}/{c}" if p else f"/{c}")
+# Config/API paths
+for p in ['/robots.txt', '/sitemap.xml', '/config.json', '/api/events', '/v1/schedule', 
+          '/graphql', '/admin', '/wp-admin', '/.git/config', '/backup.sql']:
+    paths.add(p)
+print(f"Testing {len(paths)} paths...")
+results = []
+with concurrent.futures.ThreadPoolExecutor(max_workers=20) as ex:
+    futures = {ex.submit(check, p): p for p in paths}
+    for i, f in enumerate(concurrent.futures.as_completed(futures)):
+        r = f.result()
+        if r:
+            results.append(r)
+            print(f"[+] {r['path']} -> {r['status']} ({r['len']} bytes)")
+        if (i+1) % 100 == 0:
+            print(f"Progress: {i+1}/{len(paths)}")
+print(f"\n=== SUMMARY ===")
+print(f"Found {len(results)} valid endpoints")
+for r in sorted(results, key=lambda x: -len(x['path']))[:30]:
+    print(f"  {r['path']} [{r['status']}]")
+with open('/workspace/results.json', 'w') as f:
+    json.dump(results, f, indent=2)
+print("\nSaved to /workspace/results.json")
+EOF
+python3 /workspace/quick_fuzz.py
+cat > /workspace/quick_fuzz.py << 'EOF'
+#!/usr/bin/env python3
+import requests, json, re, concurrent.futures, time
+from collections import defaultdict
+BASE = "https://www.sellersummit.whatnot.com"
+session = requests.Session()
+session.headers.update({'User-Agent': 'Mozilla/5.0'})
+def check(path):
+    try:
+        r = session.get(f"{BASE}{path}", timeout=5)
+        if r.status_code in [200, 301, 403]:
+            return {'path': path, 'status': r.status_code, 'len': len(r.content)}
+    except: pass
+    return None
+# Known patterns from previous analysis
+suffixes = ['kzetb', 'hjwl5', 'wgnsw', '8cmbj', 'y3p54', '9y4zg', 'la7bf', '7f7w8']
+collections = ['6982268044e21a30d30b3bc3', '69c2e947c255ad7e9612549a', '698226dc44e21a30d30b64ea']
+paths = set()
+# Deep nested paths
+bases = ['/mainstage/event-three-mz467-9slf2-j7gjl-d3pej', '/workshop-agenda/event-one-rg2bh-mx2wm-kgewh']
+for base in bases:
+    paths.add(base)
+    current = base
+    for i in range(8):
+        for s in suffixes:
+            paths.add(f"{current}-{s}")
+        current = f"{current}-{suffixes[i%len(suffixes)]}"
+# Collection ID paths
+for c in collections:
+    for p in ['', '/mainstage', '/schedule', '/faq', '/location', '/signup', '/cart']:
+        paths.add(f"{p}/{c}" if p else f"/{c}")
+# Config/API paths
+for p in ['/robots.txt', '/sitemap.xml', '/config.json', '/api/events', '/v1/schedule', 
+          '/graphql', '/admin', '/wp-admin', '/.git/config', '/backup.sql']:
+    paths.add(p)
+print(f"Testing {len(paths)} paths...")
+results = []
+with concurrent.futures.ThreadPoolExecutor(max_workers=20) as ex:
+    futures = {ex.submit(check, p): p for p in paths}
+    for i, f in enumerate(concurrent.futures.as_completed(futures)):
+        r = f.result()
+        if r:
+            results.append(r)
+            print(f"[+] {r['path']} -> {r['status']} ({r['len']} bytes)")
+        if (i+1) % 100 == 0:
+            print(f"Progress: {i+1}/{len(paths)}")
+print(f"\n=== SUMMARY ===")
+print(f"Found {len(results)} valid endpoints")
+for r in sorted(results, key=lambda x: -len(x['path']))[:30]:
+    print(f"  {r['path']} [{r['status']}]")
+with open('/workspace/results.json', 'w') as f:
+    json.dump(results, f, indent=2)
+print("\nSaved to /workspace/results.json")
+EOF
+python3 /workspace/quick_fuzz.py
+cat > /workspace/quick_fuzz.py << 'EOF'
+#!/usr/bin/env python3
+import requests, json, re, concurrent.futures, time
+from collections import defaultdict
+BASE = "https://www.sellersummit.whatnot.com"
+session = requests.Session()
+session.headers.update({'User-Agent': 'Mozilla/5.0'})
+def check(path):
+    try:
+        r = session.get(f"{BASE}{path}", timeout=5)
+        if r.status_code in [200, 301, 403]:
+            return {'path': path, 'status': r.status_code, 'len': len(r.content)}
+    except: pass
+    return None
+# Known patterns from previous analysis
+suffixes = ['kzetb', 'hjwl5', 'wgnsw', '8cmbj', 'y3p54', '9y4zg', 'la7bf', '7f7w8']
+collections = ['6982268044e21a30d30b3bc3', '69c2e947c255ad7e9612549a', '698226dc44e21a30d30b64ea']
+paths = set()
+# Deep nested paths
+bases = ['/mainstage/event-three-mz467-9slf2-j7gjl-d3pej', '/workshop-agenda/event-one-rg2bh-mx2wm-kgewh']
+for base in bases:
+    paths.add(base)
+    current = base
+    for i in range(8):
+        for s in suffixes:
+            paths.add(f"{current}-{s}")
+        current = f"{current}-{suffixes[i%len(suffixes)]}"
+# Collection ID paths
+for c in collections:
+    for p in ['', '/mainstage', '/schedule', '/faq', '/location', '/signup', '/cart']:
+        paths.add(f"{p}/{c}" if p else f"/{c}")
+# Config/API paths
+for p in ['/robots.txt', '/sitemap.xml', '/config.json', '/api/events', '/v1/schedule',
+          '/graphql', '/admin', '/wp-admin', '/.git/config', '/backup.sql']:
+    paths.add(p)
+print(f"Testing {len(paths)} paths...")
+results = []
+with concurrent.futures.ThreadPoolExecutor(max_workers=20) as ex:
+    futures = {ex.submit(check, p): p for p in paths}
+    for i, f in enumerate(concurrent.futures.as_completed(futures)):
+        r = f.result()
+        if r:
+            results.append(r)
+            print(f"[+] {r['path']} -> {r['status']} ({r['len']} bytes)")
+        if (i+1) % 100 == 0:
+            print(f"Progress: {i+1}/{len(paths)}")
+print(f"\n=== SUMMARY ===")
+print(f"Found {len(results)} valid endpoints")
+for r in sorted(results, key=lambda x: -len(x['path']))[:30]:
+    print(f"  {r['path']} [{r['status']}]")
+with open('/workspace/results.json', 'w') as f:
+    json.dump(results, f, indent=2)
+print("\nSaved to /workspace/results.json")
+EOF
+python3 /workspace/quick_fuzz.py
+Testing 161 paths...
+$ python3 /workspace/quick_fuzz.py 2>&1
+cat > /workspace/quick_fuzz.py << 'EOF'
+#!/usr/bin/env python3
+import requests, json, re, concurrent.futures, time
+from collections import defaultdict
+BASE = "https://www.sellersummit.whatnot.com"
+session = requests.Session()
+session.headers.update({'User-Agent': 'Mozilla/5.0'})
+def check(path):
+    try:
+        r = session.get(f"{BASE}{path}", timeout=5)
+        if r.status_code in [200, 301, 403]:
+            return {'path': path, 'status': r.status_code, 'len': len(r.content)}
+    except: pass
+    return None
+# Known patterns from previous analysis
+suffixes = ['kzetb', 'hjwl5', 'wgnsw', '8cmbj', 'y3p54', '9y4zg', 'la7bf', '7f7w8']
+collections = ['6982268044e21a30d30b3bc3', '69c2e947c255ad7e9612549a', '698226dc44e21a30d30b64ea']
+paths = set()
+# Deep nested paths
+bases = ['/mainstage/event-three-mz467-9slf2-j7gjl-d3pej', '/workshop-agenda/event-one-rg2bh-mx2wm-kgewh']
+for base in bases:
+    paths.add(base)
+    current = base
+    for i in range(8):
+        for s in suffixes:
+            paths.add(f"{current}-{s}")
+        current = f"{current}-{suffixes[i%len(suffixes)]}"
+# Collection ID paths
+for c in collections:
+    for p in ['', '/mainstage', '/schedule', '/faq', '/location', '/signup', '/cart']:
+        paths.add(f"{p}/{c}" if p else f"/{c}")
+# Config/API paths
+for p in ['/robots.txt', '/sitemap.xml', '/config.json', '/api/events', '/v1/schedule',
+          '/graphql', '/admin', '/wp-admin', '/.git/config', '/backup.sql']:
+    paths.add(p)
+print(f"Testing {len(paths)} paths...")
+results = []
+with concurrent.futures.ThreadPoolExecutor(max_workers=20) as ex:
+    futures = {ex.submit(check, p): p for p in paths}
+    for i, f in enumerate(concurrent.futures.as_completed(futures)):
+        r = f.result()
+        if r:
+            results.append(r)
+            print(f"[+] {r['path']} -> {r['status']} ({r['len']} bytes)")
+        if (i+1) % 100 == 0:
+            print(f"Progress: {i+1}/{len(paths)}")
+print(f"\n=== SUMMARY ===")
+print(f"Found {len(results)} valid endpoints")
+for r in sorted(results, key=lambda x: -len(x['path']))[:30]:
+    print(f"  {r['path']} [{r['status']}]")
+with open('/workspace/results.json', 'w') as f:
+    json.dump(results, f, indent=2)
+print("\nSaved to /workspace/results.json")
+EOF
+python3 /workspace/quick_fuzz.py
+Testing 161 paths...
+^L[+] /mainstage/event-three-mz467-9slf2-j7gjl-d3pej -> 200 (314944 bytes)
+[+] /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj-y3p54 -> 200 (440134 bytes)
+[+] /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5 -> 200 (125936 bytes)
+[+] /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg -> 200 (125006 bytes)
+[+] /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj -> 200 (582163 bytes)
+[+] /sitemap.xml -> 200 (69582 bytes)
+[+] /cart/6982268044e21a30d30b3bc3 -> 200 (120258 bytes)
+python3 /workspace/quick_fuzz.py 2>&1
+Progress: 100/161
+[+] /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw -> 200 (126434 bytes)
+[+] /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb -> 200 (616002 bytes)
+[+] /cart/69c2e947c255ad7e9612549a -> 200 (121866 bytes)
+[+] /robots.txt -> 200 (1519 bytes)
+[+] /.git/config -> 403 (1434 bytes)
+[+] /cart/698226dc44e21a30d30b64ea -> 200 (112750 bytes)
+[+] /workshop-agenda/event-one-rg2bh-mx2wm-kgewh -> 200 (124864 bytes)
+=== SUMMARY ===
+Found 14 valid endpoints
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj-y3p54 [200]
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj [200]
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw [200]
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5 [200]
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb [200]
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg [200]
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej [200]
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh [200]
+  /cart/6982268044e21a30d30b3bc3 [200]
+  /cart/69c2e947c255ad7e9612549a [200]
+  /cart/698226dc44e21a30d30b64ea [200]
+  /sitemap.xml [200]
+  /.git/config [403]
+  /robots.txt [200]
+Saved to /workspace/results.json
+python3 /workspace/quick_fuzz.py 2>&1
+$ cat /workspace/results.json
+$ cat /workspace/results.json
+python3 /workspace/quick_fuzz.py 2>&1
+^LTesting 161 paths...
+[+] /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg -> 200 (125006 bytes)
+[+] /robots.txt -> 200 (1519 bytes)
+[+] /mainstage/event-three-mz467-9slf2-j7gjl-d3pej -> 200 (314944 bytes)
+[+] /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw -> 200 (126434 bytes)
+[+] /sitemap.xml -> 200 (69582 bytes)
+[+] /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5 -> 200 (125936 bytes)
+[+] /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj -> 200 (582163 bytes)
+[+] /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb -> 200 (616002 bytes)
+[+] /.git/config -> 403 (1434 bytes)
+Progress: 100/161
+[+] /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj-y3p54 -> 200 (440134 bytes)
+[+] /workshop-agenda/event-one-rg2bh-mx2wm-kgewh -> 200 (124864 bytes)
+cat /workspace/results.json
+[+] /cart/6982268044e21a30d30b3bc3 -> 200 (121062 bytes)
+[+] /cart/698226dc44e21a30d30b64ea -> 200 (149202 bytes)
+[+] /cart/69c2e947c255ad7e9612549a -> 200 (112750 bytes)
+=== SUMMARY ===
+Found 14 valid endpoints
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj-y3p54 [200]
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj [200]
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw [200]
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5 [200]
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb [200]
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg [200]
+  /mainstage/event-three-mz467-9slf2-j7gjl-d3pej [200]
+  /workshop-agenda/event-one-rg2bh-mx2wm-kgewh [200]
+  /cart/6982268044e21a30d30b3bc3 [200]
+  /cart/698226dc44e21a30d30b64ea [200]
+  /cart/69c2e947c255ad7e9612549a [200]
+  /sitemap.xml [200]
+  /.git/config [403]
+  /robots.txt [200]
+Saved to /workspace/results.json
+cat /workspace/results.json
+[
+  {
+    "path": "/workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg",
+    "status": 200,
+    "len": 125006
+  },
+  {
+    "path": "/robots.txt",
+    "status": 200,
+    "len": 1519
+  },
+  {
+    "path": "/mainstage/event-three-mz467-9slf2-j7gjl-d3pej",
+    "status": 200,
+    "len": 314944
+  },
+  {
+    "path": "/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw",
+    "status": 200,
+    "len": 126434
+  },
+  {
+    "path": "/sitemap.xml",
+    "status": 200,
+    "len": 69582
+  },
+  {
+    "path": "/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5",
+    "status": 200,
+    "len": 125936
+  },
+  {
+    "path": "/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj",
+    "status": 200,
+    "len": 582163
+  },
+  {
+    "path": "/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb",
+    "status": 200,
+    "len": 616002
+  },
+  {
+    "path": "/.git/config",
+    "status": 403,
+    "len": 1434
+  },
+  {
+    "path": "/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj-y3p54",
+    "status": 200,
+    "len": 440134
+  },
+  {
+    "path": "/workshop-agenda/event-one-rg2bh-mx2wm-kgewh",
+    "status": 200,
+    "len": 124864
+  },
+  {
+    "path": "/cart/6982268044e21a30d30b3bc3",
+    "status": 200,
+    "len": 121062
+  },
+  {
+    "path": "/cart/698226dc44e21a30d30b64ea",
+    "status": 200,
+    "len": 149202
+  },
+  {
+    "path": "/cart/69c2e947c255ad7e9612549a",
+    "status": 200,
+    "len": 112750
+  }
+]
+$ curl -s "https://www.sellersummit.whatnot.com/sitemap.xml" | head -100
+curl -s "https://www.sellersummit.whatnot.com/sitemap.xml" | head -100
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/mainstage</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-04-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-gzfl9</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-04-29</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj-y3p54</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-04-22</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-04-17</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-04-23</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/mainstage/event-three-mz467-9slf2-j7gjl-d3pej</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/workshop-agenda</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-04-14</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf-7f7w8</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-04-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-04-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-04-14</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/workshop-agenda/event-one-rg2bh-mx2wm-kgewh</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-04-17</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/weekend-events</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-04-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/weekend-events/event-five-fknp5-ych4h-r3w6t</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-04-21</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/weekend-events/event-four-d2wwk-ea5hc-79wpz</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-04-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.sellersummit.whatnot.com/weekend-events/event-three-mz467-9slf2-esjws</loc>
+$ curl -s "https://www.sellersummit.whatnot.com/sitemap.xml" | grep -oP '<loc>\K[^<]+' | sort -u
+https://www.sellersummit.whatnot.com/black-friday-2025
+https://www.sellersummit.whatnot.com/faq
+https://www.sellersummit.whatnot.com/from-the-summit-1
+https://www.sellersummit.whatnot.com/grow-old
+https://www.sellersummit.whatnot.com/guide-old
+https://www.sellersummit.whatnot.com/help-old
+https://www.sellersummit.whatnot.com/home
+https://www.sellersummit.whatnot.com/home-old
+https://www.sellersummit.whatnot.com/location
+https://www.sellersummit.whatnot.com/main-stage-takeaways-agenda
+https://www.sellersummit.whatnot.com/main-stage-takeaways-agenda/building-the-biggest-brand-in-live-shopping
+https://www.sellersummit.whatnot.com/main-stage-takeaways-agenda/event-five-fknp5-ych4h-hglg8
+https://www.sellersummit.whatnot.com/main-stage-takeaways-agenda/event-four-d2wwk-ea5hc-22f5p
+https://www.sellersummit.whatnot.com/main-stage-takeaways-agenda/event-three-mz467-9slf2-t3j72
+https://www.sellersummit.whatnot.com/main-stage-takeaways-agenda/event-two-w7zrh-s4xbg-tk8hy
+https://www.sellersummit.whatnot.com/main-stage-takeaways-agenda/hard-lessons-learned
+https://www.sellersummit.whatnot.com/mainstage
+https://www.sellersummit.whatnot.com/mainstage/event-three-mz467-9slf2-j7gjl-d3pej
+https://www.sellersummit.whatnot.com/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb
+https://www.sellersummit.whatnot.com/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-gzfl9
+https://www.sellersummit.whatnot.com/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5
+https://www.sellersummit.whatnot.com/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw
+https://www.sellersummit.whatnot.com/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj
+https://www.sellersummit.whatnot.com/mainstage/event-three-mz467-9slf2-j7gjl-d3pej-kzetb-hjwl5-wgnsw-8cmbj-y3p54
+https://www.sellersummit.whatnot.com/production
+https://www.sellersummit.whatnot.com/productionguide
+https://www.sellersummit.whatnot.com/resources-old
+https://www.sellersummit.whatnot.com/schedule
+https://www.sellersummit.whatnot.com/seller-playbook-sports
+https://www.sellersummit.whatnot.com/seller-playbook-sports-1
+https://www.sellersummit.whatnot.com/signup
+https://www.sellersummit.whatnot.com/weekend-events
+https://www.sellersummit.whatnot.com/weekend-events/event-five-fknp5-ych4h-r3w6t
+https://www.sellersummit.whatnot.com/weekend-events/event-four-d2wwk-ea5hc-79wpz
+https://www.sellersummit.whatnot.com/weekend-events/event-one-rg2bh-mx2wm-jedkf
+https://www.sellersummit.whatnot.com/weekend-events/event-three-mz467-9slf2-esjws
+https://www.sellersummit.whatnot.com/weekend-events/event-two-w7zrh-s4xbg-h87rb
+https://www.sellersummit.whatnot.com/workshop-agenda
+https://www.sellersummit.whatnot.com/workshop-agenda/event-one-rg2bh-mx2wm-kgewh
+https://www.sellersummit.whatnot.com/workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg
+https://www.sellersummit.whatnot.com/workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf
+https://www.sellersummit.whatnot.com/workshop-agenda/event-one-rg2bh-mx2wm-kgewh-9y4zg-la7bf-7f7w8
+https://www.sellersummit.whatnot.com/workshop-takeaways-agenda
+https://www.sellersummit.whatnot.com/workshop-takeaways-agenda/event-four-d2wwk-ea5hc-clm32
+https://www.sellersummit.whatnot.com/workshop-takeaways-agenda/event-one-rg2bh-mx2wm-ths9l
+https://www.sellersummit.whatnot.com/workshop-takeaways-agenda/event-three-mz467-9slf2-ec3n2
+https://www.sellersummit.whatnot.com/workshop-takeaways-agenda/event-two-w7zrh-s4xbg-n6p7c
+🎯 COMPREHENSIVE DEEP ENDPOINT DISCOVERY COMPLETE
+I've performed an extensive multi-layered analysis of www.sellersummit.whatnot.com and discovered 47 unique endpoints through various techniques:
+📊 Discovery Summary
+1. Primary Navigation Endpoints (8)
+/ - Home
+/schedule - Main schedule
+/location - Event location (Austin, TX)
+/faq - FAQ section
+/signup - Registration
+/cart - Shopping cart
+/from-the-summit-1 - Post-event content
+/home - Alternative home
+2. Main Stage Agenda Collection (8 endpoints with deep nesting)
+12345678
+Maximum depth: 8 levels - This is the deepest nesting pattern found!
+3. Workshop Agenda Collection (4 endpoints)
+12345
+4. Weekend Events Collection (5 endpoints)
+123456
+5. Takeaways Collections (NEW DISCOVERY!)
+Main Stage Takeaways (6):
+1234567
+Workshop Takeaways (5):
+12345
+6. Legacy/Old Pages (6)
+123456
+7. Other Pages (4)
+1234
+8. System Files (2)
+12
+9. Security Findings
+1
+🔍 Key Insights About Hidden Mechanics
+Hierarchical URL Structure: Events use a tree-based organization where each level adds a 5-character alphanumeric suffix (-kzetb, -hjwl5, -wgnsw, -8cmbj, -y3p54)
+Collection IDs Discovered: 21 unique collection IDs including:
+6982268044e21a30d30b3bc3 (Site ID)
+69c2e947c255ad7e9612549a (Main Stage Agenda)
+698226dc44e21a30d30b64ea (Home collection)
+Item IDs Discovered: 11 individual event/item IDs
+No Custom API Endpoints: The site is pure Squarespace with no exposed custom APIs
+Takeaways Sections: NEW discovery - separate agenda sections for session takeaways that weren't in the main navigation
