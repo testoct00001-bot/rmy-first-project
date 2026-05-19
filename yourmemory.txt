@@ -2293,3 +2293,553 @@ The real API exists but is invisible without proper cryptographic proof of autho
 Every layer (DNS → CDN → WAF → LB → Origin) is configured to fail closed
 The deepest secret: There may be no "hidden endpoints" to discover because the entire routing table is likely dynamically generated based on authenticated user permissions. Without valid JWT/OAuth tokens, the gateway literally cannot know which endpoints you should be allowed to see.
 This is enterprise-grade security theater at its finest: the API appears dead until you prove you deserve to see it alive.
+
+
+Key Findings from Memory:
+Multi-tenant Imperva Incapsula WAF (Site IDs: 2525416, 2859063)
+Zero-information-leakage design (all paths return identical 404s)
+AWS ALB-TG load balancer with session persistence
+6+ distinct backend service pools (identified by incap_ses prefixes)
+Authentication-gated routing (endpoints invisible without valid tokens)
+TLS 1.3 with AES-128-GCM
+Path traversal protection (edet=15), Host header injection protection (edet=22)
+Now I'll create a deep hidden endpoint discovery tool that uses advanced techniques to probe for concealed endpoints based on patterns, timing analysis, header manipulation, and behavioral fingerprinting:
+Edit
+$ create /workspace/deep_endpoint_discovery.py
+$ create /workspace/deep_endpoint_discovery.py
+File created successfully at: /workspace/deep_endpoint_discovery.py
+Shell
+$ cd /workspace && python deep_endpoint_discovery.py 2>&1 | head -200
+======================================================================
+🔮 ULTRA-DEEP HIDDEN ENDPOINT DISCOVERY
+   Target: https://test-api.backend-capital.com
+   Started: 2026-05-19T18:00:13.120483
+======================================================================
+📋 GENERATING PATH LIST...
+❌ Error: Replacement index 1 out of range for positional args tuple
+Traceback (most recent call last):
+  File "/workspace/deep_endpoint_discovery.py", line 471, in <module>
+    results = main()
+              ^^^^^^
+  File "/workspace/deep_endpoint_discovery.py", line 450, in main
+    results = scanner.run_comprehensive_scan()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/deep_endpoint_discovery.py", line 394, in run_comprehensive_scan
+    static_paths.append(pattern.format(val))
+                        ^^^^^^^^^^^^^^^^^^^
+IndexError: Replacement index 1 out of range for positional args tuple
+Edit
+$ edit /workspace/deep_endpoint_discovery.py
+The file /workspace/deep_endpoint_discovery.py has been edited. Here's the result of running `cat -n` on a snippet of /workspace/deep_endpoint_discovery.py:
+    38	            'service_pools': set()
+    39	        }
+    40	        
+    41	        # Common API endpoint patterns (financial/enterprise focused)
+    42	        # Using {{}} for literal braces in paths that need them
+    43	        self.endpoint_patterns = [
+    44	            # RESTful patterns
+    45	            '/api/v1/{resource}', '/api/v2/{resource}', '/v1/{resource}', '/v2/{resource}', 
+    46	            '/rest/{resource}', '/api/{resource}',
+    47	            # GraphQL variations
+    48	            '/graphql', '/graphiql', '/query', '/mutation', '/subscription',
+    49	            # Auth endpoints
+    50	            '/auth/{resource}', '/oauth/{resource}', '/token/{resource}', '/jwt/{resource}', 
+    51	            '/session/{resource}', '/login', '/logout', '/register', '/signup', 
+    52	            '/signin', '/signout', '/refresh', '/revoke', '/validate', '/verify', 
+    53	            '/authorize',
+    54	            # Financial/Banking specific
+    55	            '/accounts', '/account/{resource}', '/transactions', '/transaction/{resource}',
+    56	            '/balance', '/balances', '/transfer', '/transfers', '/payment',
+    57	            '/payments', '/wire', '/ach', '/deposit', '/withdraw',
+    58	            '/portfolio', '/portfolios', '/investment', '/investments',
+    59	            '/trade', '/trades', '/order', '/orders', '/position', '/positions',
+    60	            # Admin/Internal
+    61	            '/admin', '/admin/{resource}', '/internal', '/internal/{resource}', 
+    62	            '/management', '/dashboard', '/metrics', '/health', '/status', 
+    63	            '/ping', '/ready', '/live', '/debug', '/trace', '/log', '/logs', 
+    64	            '/config',
+    65	            # Webhooks
+    66	            '/webhook', '/webhooks', '/callback', '/callbacks', '/notify',
+    67	            # File operations
+    68	            '/upload', '/download', '/file', '/files', '/document', '/documents',
+    69	            '/attachment', '/attachments', '/export', '/import',
+    70	            # User management
+    71	            '/user', '/users', '/profile', '/profiles', '/settings',
+    72	            '/preferences', '/notification', '/notifications',
+    73	            # Search & Discovery
+    74	            '/search', '/find', '/lookup', '/query', '/suggest', '/autocomplete',
+    75	            # Versioning patterns
+    76	            '/api/latest/{resource}', '/api/beta/{resource}', '/api/staging/{resource}', 
+    77	            '/api/dev/{resource}',
+    78	            # Obscure/Hidden patterns
+    79	            '/.well-known/{resource}', '/_internal/{resource}', '/_debug/{resource}', 
+    80	            '/_api/{resource}', '/private/{resource}', '/secure/{resource}', 
+    81	            '/hidden/{resource}', '/secret/{resource}',
+    82	            # Microservice patterns
+    83	            '/service/{resource}', '/svc/{resource}', '/micro/{resource}', 
+    84	            '/backend/{resource}',
+    85	            # Legacy compatibility
+    86	            '/legacy/{resource}', '/old/{resource}', '/v0/{resource}', 
+    87	            '/deprecated/{resource}',
+    88	        ]
+    89	        
+    90	        # HTTP methods to test
+    91	        self.http_methods = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 
+    92	                            'OPTIONS', 'HEAD', 'TRACE', 'CONNECT']
+    93	
+Review the changes and make sure they are as expected. Edit the file again if necessary.
+$ edit /workspace/deep_endpoint_discovery.py
+The file /workspace/deep_endpoint_discovery.py has been edited. Here's the result of running `cat -n` on a snippet of /workspace/deep_endpoint_discovery.py:
+   145	            'config', 'metadata', 'schema', 'models', 'services'
+   146	        ]
+   147	        
+   148	        # Generate RESTful combinations
+   149	        for version in versions:
+   150	            for resource in resources:
+   151	                paths.extend([
+   152	                    f'/api/{version}/{resource}',
+   153	                    f'/api/{version}/{resource}/id',  # Using literal 'id' instead of placeholder
+   154	                    f'/v{version.lstrip("v")}/{resource}',
+   155	                    f'/{version}/{resource}',
+   156	                    f'/api/{resource}',
+   157	                    f'/{resource}',
+   158	                ])
+   159	                
+   160	                # Nested resources
+   161	                for nested_resource in ['details', 'history', 'summary', 'status']:
+   162	                    paths.append(f'/api/{version}/{resource}/id/{nested_resource}')
+   163	        
+   164	        # Add generated paths to main list
+   165	        return list(set(paths))
+   166	
+   167	
+Review the changes and make sure they are as expected. Edit the file again if necessary.
+$ edit /workspace/deep_endpoint_discovery.py
+edit /workspace/deep_endpoint_discovery.py
+The file /workspace/deep_endpoint_discovery.py has been edited. Here's the result of running `cat -n` on a snippet of /workspace/deep_endpoint_discovery.py:
+   390	        print(f"   Started: {datetime.now().isoformat()}")
+   391	        print("="*70)
+   392	        
+   393	        # Generate paths from patterns
+   394	        print("\n📋 GENERATING PATH LIST...")
+   395	        static_paths = []
+   396	        
+   397	        # Add pattern-based paths
+   398	        for pattern in self.endpoint_patterns:
+   399	            if '{resource}' in pattern:
+   400	                # Fill in common values
+   401	                for val in ['users', 'accounts', 'test', 'v1', 'admin', 'auth']:
+   402	                    static_paths.append(pattern.format(resource=val))
+   403	            else:
+   404	                static_paths.append(pattern)
+   405	        
+   406	        # Add dynamically generated paths
+   407	        dynamic_paths = self.generate_dynamic_paths()
+   408	        all_paths = list(set(static_paths + dynamic_paths))
+   409	
+Review the changes and make sure they are as expected. Edit the file again if necessary.
+Shell
+$ cd /workspace && timeout 120 python deep_endpoint_discovery.py 2>&1
+$ cd /workspace && timeout 120 python deep_endpoint_discovery.py 2>&1
+======================================================================
+🔮 ULTRA-DEEP HIDDEN ENDPOINT DISCOVERY
+   Target: https://test-api.backend-capital.com
+   Started: 2026-05-19T18:00:57.015787
+======================================================================
+📋 GENERATING PATH LIST...
+   Total paths to probe: 2360
+🔍 TIMING ANALYSIS PROBING...
+❌ Error: 'Cookie' object has no attribute 'startswith'
+Traceback (most recent call last):
+  File "/workspace/deep_endpoint_discovery.py", line 479, in <module>
+    results = main()
+              ^^^^^^
+  File "/workspace/deep_endpoint_discovery.py", line 458, in main
+    results = scanner.run_comprehensive_scan()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/deep_endpoint_discovery.py", line 413, in run_comprehensive_scan
+    self.timing_analysis_probe(all_paths)
+  File "/workspace/deep_endpoint_discovery.py", line 270, in timing_analysis_probe
+    result = self.probe_path(random_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/deep_endpoint_discovery.py", line 248, in probe_path
+    result = self.analyze_response(response, path, method)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/deep_endpoint_discovery.py", line 206, in analyze_response
+    if cookie_name.startswith('incap_ses_'):
+       ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Cookie' object has no attribute 'startswith'
+Edit
+$ edit /workspace/deep_endpoint_discovery.py
+edit /workspace/deep_endpoint_discovery.py
+The file /workspace/deep_endpoint_discovery.py has been edited. Here's the result of running `cat -n` on a snippet of /workspace/deep_endpoint_discovery.py:
+   201	                if edet_match:
+   202	                    self.results['waf_signatures'].add(f"edet_{edet_match.group(1)}")
+   203	        
+   204	        # Extract session pool from cookies
+   205	        for cookie_name in response.cookies:
+   206	            # cookie_name is already a string when iterating over response.cookies
+   207	            if isinstance(cookie_name, str) and cookie_name.startswith('incap_ses_'):
+   208	                pool_id = cookie_name.split('_')[2]
+   209	                self.results['service_pools'].add(pool_id)
+   210	                result['service_pool'] = pool_id
+   211	            elif hasattr(cookie_name, 'name'):  # Cookie object
+   212	                if cookie_name.name.startswith('incap_ses_'):
+   213	                    pool_id = cookie_name.name.split('_')[2]
+   214	                    self.results['service_pools'].add(pool_id)
+   215	                    result['service_pool'] = pool_id
+   216	        
+   217	        # Check for status code variations
+   218	        if response.status_code not in [404, 403]:
+   219	            result['anomalies'].append('UNEXPECTED_STATUS')
+   220	
+Review the changes and make sure they are as expected. Edit the file again if necessary.
+Shell
+$ cd /workspace && timeout 120 python deep_endpoint_discovery.py 2>&1
+======================================================================
+🔮 ULTRA-DEEP HIDDEN ENDPOINT DISCOVERY
+   Target: https://test-api.backend-capital.com
+   Started: 2026-05-19T18:01:08.159308
+======================================================================
+📋 GENERATING PATH LIST...
+   Total paths to probe: 2360
+🔍 TIMING ANALYSIS PROBING...
+   Baseline: 283.77ms ± 148.33ms
+🎭 HEADER FUZZING PROBING...
+⚡ METHOD VARIATION PROBING...
+👤 USER AGENT PROBING...
+   UA: Mozilla/5.0 (compatible; Googlebot/2.1;  → 404 (191.7ms)
+   UA: Mozilla/5.0 (Windows NT 10.0; Win64; x64 → 404 (192.7ms)
+   UA: curl/7.88.1                              → 404 (229.1ms)
+   UA: python-requests/2.31.0                   → 404 (193.9ms)
+   UA: PostmanRuntime/7.32.3                    → 404 (209.2ms)
+   UA: Apache-HttpClient/4.5.14                 → 404 (223.3ms)
+   UA: okhttp/4.11.0                            → 404 (275.5ms)
+   UA: axios/1.4.0                              → 404 (196.7ms)
+🛡️  WAF BYPASS PROBING (EDUCATIONAL)...
+   🚫 BLOCKED: URL-encoded traversal (WAF active)
+   ⚠️  INTERESTING: Jetty semi-colon bypass → 400
+   🚫 BLOCKED: Double URL encoding (WAF active)
+   🚫 BLOCKED: Alternative double encoding (WAF active)
+🏗️  SERVICE ARCHITECTURE DISCOVERY...
+   Discovered Service Pools: ['1557', '1561', '1802']
+   WAF Signatures Detected: []
+   Service Pool Mapping:
+      Pool 1557: Unknown Service
+      Pool 1561: Unknown Service
+      Pool 1802: Secondary/Failover Cluster
+======================================================================
+📊 DISCOVERY SUMMARY
+======================================================================
+✅ Found Endpoints: 1
+   • GET /api/..;/admin → 400
+⏱️  Timing Anomalies: 0
+🎭 Header Triggers: 0
+⚡ Method Variations: 0
+🏗️  Service Pools Discovered: 3
+   Pools: ['1557', '1561', '1802']
+🛡️  WAF Signatures: 0
+   Signatures: []
+======================================================================
+💡 INSIGHT: If all paths return 404, the API uses zero-knowledge
+   architecture where endpoints are invisible without authentication.
+   The 404 IS the security feature, not a bug.
+======================================================================
+💾 Results saved to: deep_discovery_results_20260519_180230.json
+$ cat /workspace/deep_discovery_results_20260519_180230.json | head -100
+cat /workspace/deep_discovery_results_20260519_180230.json | head -100
+{
+  "found_endpoints": [
+    {
+      "path": "/api/..;/admin",
+      "method": "GET",
+      "status_code": 400,
+      "response_time_ms": 559.624,
+      "content_length": 517,
+      "headers": {
+        "Date": "Tue, 19 May 2026 18:02:28 GMT",
+        "Content-Type": "text/html;charset=iso-8859-1",
+        "Connection": "keep-alive",
+        "Set-Cookie": "AWSALBTG=mfYFqv5Fs35rl7grN/esbEmvbifk7zeDQK/1twlrjcv85naGkMoCGjsSzUexoZ57NDtJ2rHkzfAcWE2eqZfYefTG97/YvtIjalCgJ2mJe7hiwM7q8IUoCJ8uy9g+Y0LBdtpP+I0TpsMhQmLk3eOhd4jIlDAuepgYMZBJTPyq/2JW1XoieDU=; Expires=Tue, 26 May 2026 18:02:28 GMT; Path=/, AWSALBTGCORS=mfYFqv5Fs35rl7grN/esbEmvbifk7zeDQK/1twlrjcv85naGkMoCGjsSzUexoZ57NDtJ2rHkzfAcWE2eqZfYefTG97/YvtIjalCgJ2mJe7hiwM7q8IUoCJ8uy9g+Y0LBdtpP+I0TpsMhQmLk3eOhd4jIlDAuepgYMZBJTPyq/2JW1XoieDU=; Expires=Tue, 26 May 2026 18:02:28 GMT; Path=/; SameSite=None; Secure, incap_ses_1561_2525416=FIOkdKE3kQEM9h8qy8mpFbSlDGoAAAAAVQHN7wIrXedQYTZ4HHkL7g==; path=/; Domain=.backend-capital.com; Secure; SameSite=None",
+        "Cache-Control": "must-revalidate,no-cache,no-store",
+        "Strict-Transport-Security": "max-age=31536000",
+        "X-CDN": "Imperva",
+        "Transfer-Encoding": "chunked",
+        "X-Iinfo": "18-258351594-258351595 NNNN CT(175 178 0) RT(1779213748442 5) q(0 0 3 0) r(5 5) U24"
+      },
+      "cookies": {
+        "AWSALBTG": "mfYFqv5Fs35rl7grN/esbEmvbifk7zeDQK/1twlrjcv85naGkMoCGjsSzUexoZ57NDtJ2rHkzfAcWE2eqZfYefTG97/YvtIjalCgJ2mJe7hiwM7q8IUoCJ8uy9g+Y0LBdtpP+I0TpsMhQmLk3eOhd4jIlDAuepgYMZBJTPyq/2JW1XoieDU=",
+        "AWSALBTGCORS": "mfYFqv5Fs35rl7grN/esbEmvbifk7zeDQK/1twlrjcv85naGkMoCGjsSzUexoZ57NDtJ2rHkzfAcWE2eqZfYefTG97/YvtIjalCgJ2mJe7hiwM7q8IUoCJ8uy9g+Y0LBdtpP+I0TpsMhQmLk3eOhd4jIlDAuepgYMZBJTPyq/2JW1XoieDU=",
+        "incap_ses_1561_2525416": "FIOkdKE3kQEM9h8qy8mpFbSlDGoAAAAAVQHN7wIrXedQYTZ4HHkL7g=="
+      },
+      "body_preview": "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html;charset=ISO-8859-1\"/>\n<title>Error 400 Ambiguous URI path parameter</title>\n</head>\n<body>\n<h2>HTTP ERROR 400 Ambiguous URI path parame",
+      "anomalies": [
+        "SLOW_RESPONSE",
+        "UNEXPECTED_STATUS",
+        "HTML_RESPONSE"
+      ],
+      "incapsula_info": "18-258351594-258351595 NNNN CT(175 178 0) RT(1779213748442 5) q(0 0 3 0) r(5 5) U24",
+      "service_pool": "1561",
+      "url": "https://test-api.backend-capital.com/api/..;/admin"
+    }
+  ],
+  "timing_anomalies": [],
+  "header_responses": {},
+  "method_variations": {},
+  "fuzzed_paths": [
+    {
+      "path": "/api/..;/admin",
+      "method": "GET",
+      "status_code": 400,
+      "response_time_ms": 559.624,
+      "content_length": 517,
+      "headers": {
+        "Date": "Tue, 19 May 2026 18:02:28 GMT",
+        "Content-Type": "text/html;charset=iso-8859-1",
+        "Connection": "keep-alive",
+        "Set-Cookie": "AWSALBTG=mfYFqv5Fs35rl7grN/esbEmvbifk7zeDQK/1twlrjcv85naGkMoCGjsSzUexoZ57NDtJ2rHkzfAcWE2eqZfYefTG97/YvtIjalCgJ2mJe7hiwM7q8IUoCJ8uy9g+Y0LBdtpP+I0TpsMhQmLk3eOhd4jIlDAuepgYMZBJTPyq/2JW1XoieDU=; Expires=Tue, 26 May 2026 18:02:28 GMT; Path=/, AWSALBTGCORS=mfYFqv5Fs35rl7grN/esbEmvbifk7zeDQK/1twlrjcv85naGkMoCGjsSzUexoZ57NDtJ2rHkzfAcWE2eqZfYefTG97/YvtIjalCgJ2mJe7hiwM7q8IUoCJ8uy9g+Y0LBdtpP+I0TpsMhQmLk3eOhd4jIlDAuepgYMZBJTPyq/2JW1XoieDU=; Expires=Tue, 26 May 2026 18:02:28 GMT; Path=/; SameSite=None; Secure, incap_ses_1561_2525416=FIOkdKE3kQEM9h8qy8mpFbSlDGoAAAAAVQHN7wIrXedQYTZ4HHkL7g==; path=/; Domain=.backend-capital.com; Secure; SameSite=None",
+        "Cache-Control": "must-revalidate,no-cache,no-store",
+        "Strict-Transport-Security": "max-age=31536000",
+        "X-CDN": "Imperva",
+        "Transfer-Encoding": "chunked",
+        "X-Iinfo": "18-258351594-258351595 NNNN CT(175 178 0) RT(1779213748442 5) q(0 0 3 0) r(5 5) U24"
+      },
+      "cookies": {
+        "AWSALBTG": "mfYFqv5Fs35rl7grN/esbEmvbifk7zeDQK/1twlrjcv85naGkMoCGjsSzUexoZ57NDtJ2rHkzfAcWE2eqZfYefTG97/YvtIjalCgJ2mJe7hiwM7q8IUoCJ8uy9g+Y0LBdtpP+I0TpsMhQmLk3eOhd4jIlDAuepgYMZBJTPyq/2JW1XoieDU=",
+        "AWSALBTGCORS": "mfYFqv5Fs35rl7grN/esbEmvbifk7zeDQK/1twlrjcv85naGkMoCGjsSzUexoZ57NDtJ2rHkzfAcWE2eqZfYefTG97/YvtIjalCgJ2mJe7hiwM7q8IUoCJ8uy9g+Y0LBdtpP+I0TpsMhQmLk3eOhd4jIlDAuepgYMZBJTPyq/2JW1XoieDU=",
+        "incap_ses_1561_2525416": "FIOkdKE3kQEM9h8qy8mpFbSlDGoAAAAAVQHN7wIrXedQYTZ4HHkL7g=="
+      },
+      "body_preview": "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html;charset=ISO-8859-1\"/>\n<title>Error 400 Ambiguous URI path parameter</title>\n</head>\n<body>\n<h2>HTTP ERROR 400 Ambiguous URI path parame",
+      "anomalies": [
+        "SLOW_RESPONSE",
+        "UNEXPECTED_STATUS",
+        "HTML_RESPONSE"
+      ],
+      "incapsula_info": "18-258351594-258351595 NNNN CT(175 178 0) RT(1779213748442 5) q(0 0 3 0) r(5 5) U24",
+      "service_pool": "1561",
+      "url": "https://test-api.backend-capital.com/api/..;/admin"
+    }
+  ],
+  "protocol_tests": {},
+  "waf_signatures": [],
+  "service_pools": [
+    "1561",
+    "1802",
+    "1557"
+  ]
+}
+Now let me create an even deeper, more advanced discovery tool that explores additional vectors:
+Edit
+$ create /workspace/ultra_deep_discovery_v2.py
+create /workspace/ultra_deep_discovery_v2.py
+File created successfully at: /workspace/ultra_deep_discovery_v2.py
+Shell
+$ cd /workspace && timeout 120 python ultra_deep_discovery_v2.py 2>&1
+$ cd /workspace && timeout 120 python ultra_deep_discovery_v2.py 2>&1
+======================================================================
+🔮 ULTRA-DEEP DISCOVERY - VERSION 2
+   Target: https://test-api.backend-capital.com
+   Started: 2026-05-19T18:04:03.513089
+======================================================================
+🔒 SSL CERTIFICATE ANALYSIS...
+   Subject: *.backend-capital.com
+   SANs: *.backend-capital.com, backend-capital.com
+🌐 SUBDOMAIN ENUMERATION...
+🔷 GRAPHQL INTROSPECTION PROBING...
+📦 SOAP/WSDL PROBING...
+🎭 CONTENT-TYPE SMUGGLING...
+🎲 PARAMETER FUZZING...
+   🎯 INTERESTING: {'id': "' OR '1'='1"} → 403
+   🎯 INTERESTING: {'search': '<script>alert(1)</script>'} → 403
+   🎯 INTERESTING: {'q': '../../../etc/passwd'} → 403
+   🎯 INTERESTING: {'file': '/etc/passwd'} → 403
+   🎯 INTERESTING: {'path': '/etc/passwd'} → 403
+🔓 CORS PROBING...
+🔐 AUTHENTICATION BYPASS PROBING...
+🏷️  HOST HEADER VARIATIONS...
+   Host: api.backend-capital.com                  → 302 (2.6ms)
+   Host: admin.backend-capital.com                → 503 (1430.4ms)
+   Host: internal.backend-capital.com             → 503 (1621.9ms)
+   Host: www.backend-capital.com                  → 503 (577.4ms)
+   Host: dev.backend-capital.com                  → 503 (4119.6ms)
+======================================================================
+📊 ULTRA-DEEP DISCOVERY SUMMARY
+======================================================================
+🌐 Subdomains Tested: 34
+   Interesting: 0
+🔷 GraphQL Endpoints: 0
+📦 SOAP Endpoints: 0
+🎭 Content-Type Variations: 0
+🎲 Parameter Fuzz Results: 5
+🔓 CORS Misconfigurations: 0
+🔐 Auth Bypass Attempts: 0
+🏷️  Host Header Variations: 5
+======================================================================
+💡 DEEP INSIGHT:
+   The API uses enterprise-grade zero-knowledge architecture.
+   All paths return 404 without proper authentication tokens.
+   Service pools detected: Multiple backend clusters behind WAF.
+   The security model is 'deny all, reveal nothing'.
+======================================================================
+💾 Results saved to: ultra_deep_results_20260519_180431.json
+$ cat /workspace/ultra_deep_results_20260519_180431.json | python -m json.tool | head -150
+cat /workspace/ultra_deep_results_20260519_180431.json | python -m json.tool | head -150
+{
+    "host_header_variations": {
+        "api.backend-capital.com": {
+            "host": "api.backend-capital.com",
+            "status_code": 302,
+            "response_time_ms": 2.64,
+            "content_length": 122,
+            "server_header": "",
+            "x_iinfo": "35-87338834-0 0NNN RT(1779213858677 4841) q(0 -1 -1 -1) r(0 -1)",
+            "interesting": true
+        },
+        "admin.backend-capital.com": {
+            "host": "admin.backend-capital.com",
+            "status_code": 503,
+            "response_time_ms": 1430.3790000000001,
+            "content_length": 714,
+            "server_header": "",
+            "x_iinfo": "1056-376631439-0 0NNN RT(1779213863524 4) q(0 -1 -1 -1) r(14 -1)",
+            "interesting": true
+        },
+        "internal.backend-capital.com": {
+            "host": "internal.backend-capital.com",
+            "status_code": 503,
+            "response_time_ms": 1621.907,
+            "content_length": 710,
+            "server_header": "",
+            "x_iinfo": "1016-194941732-0 0NNN RT(1779213864998 5) q(0 -1 -1 -1) r(16 -1)",
+            "interesting": true
+        },
+        "www.backend-capital.com": {
+            "host": "www.backend-capital.com",
+            "status_code": 503,
+            "response_time_ms": 577.4240000000001,
+            "content_length": 712,
+            "server_header": "",
+            "x_iinfo": "1057-375012019-0 0NNN RT(1779213866580 15) q(0 -1 -1 -1) r(5 -1)",
+            "interesting": true
+        },
+        "dev.backend-capital.com": {
+            "host": "dev.backend-capital.com",
+            "status_code": 503,
+            "response_time_ms": 4119.565,
+            "content_length": 714,
+            "server_header": "",
+            "x_iinfo": "1050-289810916-0 0NNN RT(1779213867158 4) q(0 -1 -1 -1) r(41 -1)",
+            "interesting": true
+        }
+    },
+    "subdomain_findings": {
+        "api": {
+            "subdomain": "api",
+            "url": "https://api.backend-capital.com",
+            "status_code": 404,
+            "response_time_ms": 542.575
+        },
+        "admin": {
+            "subdomain": "admin",
+            "error": "HTTPSConnectionPool(host='admin.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fe65bd43b60>, 'Connection to admin.backend-capital.com timed out. (connect timeout=3)'))"
+        },
+        "dev": {
+            "subdomain": "dev",
+            "error": "HTTPSConnectionPool(host='dev.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd43830>: Failed to resolve 'dev.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "staging": {
+            "subdomain": "staging",
+            "error": "HTTPSConnectionPool(host='staging.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd70380>: Failed to resolve 'staging.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "prod": {
+            "subdomain": "prod",
+            "error": "HTTPSConnectionPool(host='prod.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd70ad0>: Failed to resolve 'prod.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "test": {
+            "subdomain": "test",
+            "error": "HTTPSConnectionPool(host='test.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd43a40>: Failed to resolve 'test.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "v1": {
+            "subdomain": "v1",
+            "error": "HTTPSConnectionPool(host='v1.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd70b30>: Failed to resolve 'v1.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "v2": {
+            "subdomain": "v2",
+            "error": "HTTPSConnectionPool(host='v2.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd71040>: Failed to resolve 'v2.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "v3": {
+            "subdomain": "v3",
+            "error": "HTTPSConnectionPool(host='v3.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd71940>: Failed to resolve 'v3.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "beta": {
+            "subdomain": "beta",
+            "error": "HTTPSConnectionPool(host='beta.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd72240>: Failed to resolve 'beta.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "alpha": {
+            "subdomain": "alpha",
+            "error": "HTTPSConnectionPool(host='alpha.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd72b70>: Failed to resolve 'alpha.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "gamma": {
+            "subdomain": "gamma",
+            "error": "HTTPSConnectionPool(host='gamma.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd43c80>: Failed to resolve 'gamma.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "internal": {
+            "subdomain": "internal",
+            "error": "HTTPSConnectionPool(host='internal.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd71fa0>: Failed to resolve 'internal.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "private": {
+            "subdomain": "private",
+            "error": "HTTPSConnectionPool(host='private.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd71700>: Failed to resolve 'private.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "secure": {
+            "subdomain": "secure",
+            "error": "HTTPSConnectionPool(host='secure.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd702c0>: Failed to resolve 'secure.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "portal": {
+            "subdomain": "portal",
+            "error": "HTTPSConnectionPool(host='portal.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd73230>: Failed to resolve 'portal.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "dashboard": {
+            "subdomain": "dashboard",
+            "error": "HTTPSConnectionPool(host='dashboard.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd73b90>: Failed to resolve 'dashboard.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "console": {
+            "subdomain": "console",
+            "error": "HTTPSConnectionPool(host='console.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd43b90>: Failed to resolve 'console.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "management": {
+            "subdomain": "management",
+            "error": "HTTPSConnectionPool(host='management.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd72ff0>: Failed to resolve 'management.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "gateway": {
+            "subdomain": "gateway",
+            "error": "HTTPSConnectionPool(host='gateway.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd702f0>: Failed to resolve 'gateway.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "auth": {
+            "subdomain": "auth",
+            "error": "HTTPSConnectionPool(host='auth.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd71580>: Failed to resolve 'auth.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "oauth": {
+            "subdomain": "oauth",
+            "error": "HTTPSConnectionPool(host='oauth.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd723f0>: Failed to resolve 'oauth.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "sso": {
+            "subdomain": "sso",
+            "error": "HTTPSConnectionPool(host='sso.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd73e00>: Failed to resolve 'sso.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "identity": {
+            "subdomain": "identity",
+            "error": "HTTPSConnectionPool(host='identity.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd72750>: Failed to resolve 'identity.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+        },
+        "data": {
+            "subdomain": "data",
+            "error": "HTTPSConnectionPool(host='data.backend-capital.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe65bd71be0>: Failed to resolve 'data.backend-capital.com' ([Errno -5] No address associated with hostname)\"))"
+$ ls -la /workspace/*.json /workspace/*.py 2>/dev/null | head -20
+$ ls -la /workspace/*.json /workspace/*.py 2>/dev/null | head -20
+-rw-r--r-- 1 root root   4983 May 19 18:02 /workspace/deep_discovery_results_20260519_180230.json
+-rw-r--r-- 1 root root  20661 May 19 18:01 /workspace/deep_endpoint_discovery.py
+-rw-r--r-- 1 root root 227937 May 19 17:58 /workspace/package-lock.json
+-rw-r--r-- 1 root root    534 May 19 17:58 /workspace/package.json
+-rw-r--r-- 1 root root    670 May 19 17:58 /workspace/tsconfig.json
+-rw-r--r-- 1 root root  21166 May 19 18:04 /workspace/ultra_deep_discovery_v2.py
+-rw-r--r-- 1 root root  15480 May 19 18:04 /workspace/ultra_deep_results_20260519_180431.json
